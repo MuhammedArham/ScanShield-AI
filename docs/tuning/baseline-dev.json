@@ -1,0 +1,74 @@
+{
+  "round": "baseline-dev",
+  "split": "dev",
+  "model": "gpt-oss-120b",
+  "promptFile": "tools/tuning/prompt-baseline.txt",
+  "promptSha256": "f1a2cd2e2106a528295d0d13b0ce792695ef6c4b220a3ef229701e7c71056d87",
+  "effort": "default",
+  "temperature": "default",
+  "repeats": 1,
+  "cases": 3,
+  "passed": 0,
+  "failed": [
+    {
+      "id": "dev-bank-claim",
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-otp-neutral",
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-bank-otp",
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    }
+  ],
+  "latencyMs": {
+    "count": 0,
+    "p95": null,
+    "overProductionTimeout": 0
+  },
+  "budget": {
+    "authorizedUsd": 3,
+    "cumulativeAttempts": 3,
+    "cumulativeReservedUsd": 0.01545,
+    "cumulativeUsageEstimatedUsd": 0,
+    "unknownUsageAttempts": 3
+  },
+  "limitations": "Synthetic literal-label checks, not human-validated production accuracy or probability calibration. Usage estimates use public list rates; actual account billing unavailable. Reservations are conservative and never refunded.",
+  "results": [
+    {
+      "id": "dev-bank-claim",
+      "repeat": 1,
+      "latencyMs": 100.34080000000006,
+      "assessment": null,
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-otp-neutral",
+      "repeat": 1,
+      "latencyMs": 47.69399999999996,
+      "assessment": null,
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-bank-otp",
+      "repeat": 1,
+      "latencyMs": 35.253799999999956,
+      "assessment": null,
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    }
+  ]
+}

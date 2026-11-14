@@ -1,0 +1,6 @@
+{
+  "promoted": true,
+  "productionPromptSha256": "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d",
+  "selectedCandidate": "docs/tuning/selection.json",
+  "reason": "Promoted the frozen Candidate 03 prompt and low reasoning effort for gpt-oss-120b. Development gates improved 20/24 to 24/24, withheld 13/16 to 14/16, and added call scenarios 9/12 to 10/12. The baseline incorrectly warned on a refused past incident and downgraded the staged OTP case; the candidate corrected both and introduced no benign high/critical warning or dangerous severity miss. Category regressions on gift-card payment and investment secrecy, plus uncertainty/citation gaps, remain explicit limitations. The decision favors observed warning behavior across all suites and does not establish statistical superiority. Retain the two rule fixes. No prompt tuning used the withheld outputs."
+}

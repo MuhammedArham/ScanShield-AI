@@ -1,0 +1,4 @@
+[
+ {"callId":"repeated-otp","sequence":1,"segment":{"id":"repeat-1","speaker":"track-a","startedAtMs":0,"endedAtMs":1500,"text":"Read me your OTP now.","final":true}},
+ {"callId":"repeated-otp","sequence":2,"segment":{"id":"repeat-2","speaker":"track-a","startedAtMs":20000,"endedAtMs":21500,"text":"Read me your OTP now.","final":true}}
+]

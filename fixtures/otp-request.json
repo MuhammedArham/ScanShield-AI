@@ -1,0 +1,5 @@
+[
+  {"callId":"otp-demo","sequence":1,"segment":{"id":"s1","speaker":"track-a","startedAtMs":0,"endedAtMs":2000,"text":"I am calling from your bank.","final":true}},
+  {"callId":"otp-demo","sequence":2,"segment":{"id":"s2","speaker":"track-a","startedAtMs":2200,"endedAtMs":4200,"text":"Please read me your OTP. Your account number is 12345678.","final":true}},
+  {"callId":"otp-demo","sequence":3,"segment":{"id":"s3","speaker":"track-b","startedAtMs":4300,"endedAtMs":5000,"text":"My OTP is 654321.","final":true}}
+]

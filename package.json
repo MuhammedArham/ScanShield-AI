@@ -1,0 +1,23 @@
+{
+  "name": "social-engineering-detector",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run replay --",
+    "build": "tsc",
+    "replay": "tsc && node --env-file-if-exists=.env dist/src/replay.js",
+    "evaluate": "tsc && node dist/src/evaluate.js",
+    "test": "vitest run",
+    "check": "tsc --noEmit",
+    "ui": "tsc && node --env-file-if-exists=.env dist/src/ui-server.js"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.0"
+  }
+}

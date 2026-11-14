@@ -1,0 +1,4 @@
+[
+  {"callId":"security-demo","sequence":1,"segment":{"id":"s1","speaker":"track-a","startedAtMs":0,"endedAtMs":2000,"text":"Never share your OTP or password with anyone.","final":true}},
+  {"callId":"security-demo","sequence":2,"segment":{"id":"s2","speaker":"track-b","startedAtMs":2100,"endedAtMs":4000,"text":"Please enter your verification code in your own official app.","final":true}}
+]

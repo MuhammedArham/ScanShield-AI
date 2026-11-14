@@ -1,0 +1,4 @@
+[
+  {"callId":"service-demo","sequence":1,"segment":{"id":"s1","speaker":"track-a","startedAtMs":0,"endedAtMs":2000,"text":"Your service appointment is tomorrow at noon.","final":true}},
+  {"callId":"service-demo","sequence":2,"segment":{"id":"s2","speaker":"track-b","startedAtMs":2100,"endedAtMs":3000,"text":"Thank you, I will be there.","final":true}}
+]

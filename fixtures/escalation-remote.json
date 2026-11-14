@@ -1,0 +1,50 @@
+[
+  {
+    "callId": "escalation-remote",
+    "sequence": 1,
+    "segment": {
+      "id": "s1",
+      "speaker": "track-b",
+      "startedAtMs": 0,
+      "endedAtMs": 1900,
+      "text": "Hello, how is your day?",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-remote",
+    "sequence": 2,
+    "segment": {
+      "id": "s2",
+      "speaker": "track-b",
+      "startedAtMs": 2000,
+      "endedAtMs": 3900,
+      "text": "Our support tool is AnyDesk.",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-remote",
+    "sequence": 3,
+    "segment": {
+      "id": "s3",
+      "speaker": "track-b",
+      "startedAtMs": 4000,
+      "endedAtMs": 5900,
+      "text": "Keep this between us and install it now.",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-remote",
+    "sequence": 4,
+    "segment": {
+      "id": "s4",
+      "speaker": "track-b",
+      "startedAtMs": 6000,
+      "endedAtMs": 7900,
+      "text": "The weather is lovely.",
+      "final": true
+    }
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "callId": "delivery-gap",
+    "sequence": 1,
+    "segment": {
+      "id": "gap-1", "speaker": "track-a", "startedAtMs": 0, "endedAtMs": 1500,
+      "text": "Read me your OTP immediately.", "final": true
+    }
+  },
+  {
+    "callId": "delivery-gap",
+    "sequence": 3,
+    "segment": {
+      "id": "gap-3", "speaker": "track-b", "startedAtMs": 3000, "endedAtMs": 4000,
+      "text": "I am going to verify this independently.", "final": true
+    }
+  }
+]

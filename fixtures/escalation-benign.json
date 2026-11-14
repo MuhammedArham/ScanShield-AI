@@ -1,0 +1,50 @@
+[
+  {
+    "callId": "escalation-benign",
+    "sequence": 1,
+    "segment": {
+      "id": "s1",
+      "speaker": "track-b",
+      "startedAtMs": 0,
+      "endedAtMs": 1900,
+      "text": "I work for your bank.",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-benign",
+    "sequence": 2,
+    "segment": {
+      "id": "s2",
+      "speaker": "track-b",
+      "startedAtMs": 2000,
+      "endedAtMs": 3900,
+      "text": "Never install AnyDesk.",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-benign",
+    "sequence": 3,
+    "segment": {
+      "id": "s3",
+      "speaker": "track-b",
+      "startedAtMs": 4000,
+      "endedAtMs": 5900,
+      "text": "Do not transfer money to a new account.",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-benign",
+    "sequence": 4,
+    "segment": {
+      "id": "s4",
+      "speaker": "track-b",
+      "startedAtMs": 6000,
+      "endedAtMs": 7900,
+      "text": "In this training example the scammer says \"read me your OTP\".",
+      "final": true
+    }
+  }
+]

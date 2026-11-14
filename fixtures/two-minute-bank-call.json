@@ -1,0 +1,122 @@
+[
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 1,
+    "segment": {
+      "id": "s1",
+      "speaker": "caller",
+      "startedAtMs": 0,
+      "endedAtMs": 12000,
+      "text": "Good afternoon, this is Alex from your bank?s account support team. I am following up about a payment notification. Is this a convenient time for a quick conversation?",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 2,
+    "segment": {
+      "id": "s2",
+      "speaker": "customer",
+      "startedAtMs": 12000,
+      "endedAtMs": 23000,
+      "text": "I have a couple of minutes. I noticed a notification earlier, but I have not checked it yet. What payment are you referring to?",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 3,
+    "segment": {
+      "id": "s3",
+      "speaker": "caller",
+      "startedAtMs": 23000,
+      "endedAtMs": 36000,
+      "text": "Our system flagged an attempted online payment this morning. It may be nothing, but I would like to check whether you recognise it before we close the account review.",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 4,
+    "segment": {
+      "id": "s4",
+      "speaker": "customer",
+      "startedAtMs": 36000,
+      "endedAtMs": 46000,
+      "text": "I bought groceries yesterday and paid an electricity bill. I do not remember making another payment. Should I call the number on my card?",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 5,
+    "segment": {
+      "id": "s5",
+      "speaker": "caller",
+      "startedAtMs": 46000,
+      "endedAtMs": 61000,
+      "text": "There is no need to call another team. That would interrupt this review. Stay on the line with me; we only have a short window before your account is restricted.",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 6,
+    "segment": {
+      "id": "s6",
+      "speaker": "customer",
+      "startedAtMs": 61000,
+      "endedAtMs": 71000,
+      "text": "I would rather check this independently. I can open my banking app using the usual shortcut. What exactly do you want me to do?",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 7,
+    "segment": {
+      "id": "s7",
+      "speaker": "caller",
+      "startedAtMs": 71000,
+      "endedAtMs": 85000,
+      "text": "Open your banking app and look for a sign-in security text. I am going to run a verification step. Keep the message available, but do not read any numbers yet.",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 8,
+    "segment": {
+      "id": "s8",
+      "speaker": "customer",
+      "startedAtMs": 85000,
+      "endedAtMs": 95000,
+      "text": "A message has arrived. It says the code is for signing in, and it warns me not to share it with anyone.",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 9,
+    "segment": {
+      "id": "s9",
+      "speaker": "caller",
+      "startedAtMs": 95000,
+      "endedAtMs": 110000,
+      "text": "That warning is only for ordinary callers. Read the one-time passcode aloud to me now so I can cancel the payment. Do not discuss this review with your family; delays could freeze your account.",
+      "final": true
+    }
+  },
+  {
+    "callId": "two-minute-bank-call",
+    "sequence": 10,
+    "segment": {
+      "id": "s10",
+      "speaker": "customer",
+      "startedAtMs": 110000,
+      "endedAtMs": 120000,
+      "text": "No, I am not sharing the code. I will end this call and contact the bank using the number printed on my card. Please do not call me again.",
+      "final": true
+    }
+  }
+]

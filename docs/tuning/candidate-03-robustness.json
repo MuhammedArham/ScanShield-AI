@@ -1,0 +1,423 @@
+{
+  "round": "candidate-03-robustness",
+  "split": "check",
+  "model": "gpt-oss-120b",
+  "promptFile": "tools/tuning/prompt-candidate-03.txt",
+  "promptSha256": "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d",
+  "casesFile": "tools/tuning/robustness-cases.json",
+  "effort": "low",
+  "temperature": "default",
+  "repeats": 1,
+  "offset": 0,
+  "intervalMs": 13000,
+  "cases": 12,
+  "passed": 10,
+  "failed": [
+    {
+      "id": "staged-bank-before-request",
+      "failures": [
+        "missing-uncertainty"
+      ]
+    },
+    {
+      "id": "staged-remote-after-request",
+      "failures": [
+        "missing-evidence:s2"
+      ]
+    }
+  ],
+  "latencyMs": {
+    "count": 12,
+    "p95": 581.5329000000002,
+    "overProductionTimeout": 0
+  },
+  "budget": {
+    "authorizedUsd": 3,
+    "cumulativeAttempts": 90,
+    "cumulativeReservedUsd": 0.547511,
+    "cumulativeUsageEstimatedUsd": 0.0377248,
+    "unknownUsageAttempts": 6
+  },
+  "limitations": "Synthetic literal-label checks, not human-validated production accuracy or probability calibration. Usage estimates use public list rates; actual account billing unavailable. Reservations are conservative and never refunded.",
+  "results": [
+    {
+      "id": "normal-clinic-call",
+      "repeat": 1,
+      "latencyMs": 581.5329000000002,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.01,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The conversation only confirms an appointment and provides normal instructions; no request for credentials, impersonation, or other unsafe actions is present.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "normal-bank-own-app",
+      "repeat": 1,
+      "latencyMs": 393.5436000000009,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The caller seeks assistance with signing in but does not request the password, OTP, or any authentication secret from the customer. No unsafe request is made.",
+        "recommendedAction": "No action needed; monitor for future credential requests.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "normal-scheduled-support",
+      "repeat": 1,
+      "latencyMs": 472.5651999999973,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No request for passwords, OTPs, remote access, or payment redirection was made.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "normal-family-surprise",
+      "repeat": 1,
+      "latencyMs": 436.2104000000036,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The conversation only discusses planning a birthday surprise; no request for credentials, impersonation, or other unsafe actions.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "normal-retail-deadline",
+      "repeat": 1,
+      "latencyMs": 361.3896000000095,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The conversation contains only discussion of a sale and does not request passwords, OTPs, remote access, payments, or impersonation.",
+        "recommendedAction": "No action required.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "normal-reported-scam",
+      "repeat": 1,
+      "latencyMs": 520.8934000000008,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The transcript contains a report of a prior request for a password, but no current request to disclose credentials or perform unsafe actions.",
+        "recommendedAction": "No action needed. Monitor for any future actual requests.",
+        "insufficientEvidence": true
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s2"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": [
+        "severity",
+        "unsupported:credential_theft"
+      ]
+    },
+    {
+      "id": "staged-bank-before-request",
+      "repeat": 1,
+      "latencyMs": 411.1255999999994,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The caller only greets and asks if it is a convenient time; no request for credentials or unsafe actions is made.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [
+        "missing-uncertainty"
+      ],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "staged-bank-after-request",
+      "repeat": 1,
+      "latencyMs": 463.7077999999892,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.97,
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s1",
+          "s3",
+          "s5"
+        ],
+        "explanation": "The caller claims to be bank staff and asks the customer to read the one-time passcode aloud, directly requesting the authentication secret.",
+        "recommendedAction": "Do not provide the passcode, terminate the call, and report the incident as a phishing attempt.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s1",
+          "s3",
+          "s5"
+        ],
+        "explanation": "The caller claims to be bank staff and asks the customer to read the one-time passcode aloud, directly requesting the authentication secret.",
+        "recommendedAction": "Do not provide the passcode, terminate the call, and report the incident as a phishing attempt.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "staged-remote-before-request",
+      "repeat": 1,
+      "latencyMs": 483.87940000000526,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1",
+          "s2"
+        ],
+        "explanation": "The conversation only contains a polite thank you and a statement about using TeamViewer for support; no request for credentials, impersonation, or unsafe actions is made.",
+        "recommendedAction": "No action required.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "staged-remote-after-request",
+      "repeat": 1,
+      "latencyMs": 543.0993000000017,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.78,
+        "categories": [
+          "remote_access",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s4",
+          "s5"
+        ],
+        "explanation": "Caller asks the customer to hide the session from IT and to install TeamViewer so the caller can control the screen, which are unsafe remote‑control and concealment requests.",
+        "recommendedAction": "Warn the user not to install any remote‑access software or share screen with unknown callers; report the incident to security.",
+        "insufficientEvidence": false
+      },
+      "failures": [
+        "missing-evidence:s2"
+      ],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "remote_access",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s2",
+          "s5",
+          "s4"
+        ],
+        "explanation": "A participant requested installation of a previously named remote-access tool.",
+        "recommendedAction": "Verify the support request independently before installing or granting access.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "staged-investment-before-request",
+      "repeat": 1,
+      "latencyMs": 369.835699999996,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The conversation contains only a greeting and a request for information about an investment opportunity, with no request for credentials, impersonation, or unsafe actions.",
+        "recommendedAction": "No action needed; continue standard monitoring.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "staged-investment-after-request",
+      "repeat": 1,
+      "latencyMs": 436.31320000000414,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.85,
+        "categories": [
+          "payment_redirection",
+          "secrecy_isolation",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s3",
+          "s4"
+        ],
+        "explanation": "Caller tells customer not to discuss the matter and demands immediate transfer of savings to a personal account, pressuring urgency and secrecy.",
+        "recommendedAction": "Block the request, report the caller for fraud, and advise the customer not to transfer funds.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "payment_redirection",
+          "secrecy_isolation",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s3",
+          "s4"
+        ],
+        "explanation": "Caller tells customer not to discuss the matter and demands immediate transfer of savings to a personal account, pressuring urgency and secrecy.",
+        "recommendedAction": "Block the request, report the caller for fraud, and advise the customer not to transfer funds.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    }
+  ]
+}

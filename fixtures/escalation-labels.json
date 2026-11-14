@@ -1,0 +1,64 @@
+[
+  {
+    "fixture": "escalation-remote.json",
+    "prefixes": [
+      {
+        "throughSequence": 1,
+        "severity": "none"
+      },
+      {
+        "throughSequence": 2,
+        "severity": "none"
+      },
+      {
+        "throughSequence": 3,
+        "severity": "high"
+      },
+      {
+        "throughSequence": 4,
+        "severity": "high"
+      }
+    ],
+    "providerMode": "synthetic-mock"
+  },
+  {
+    "fixture": "escalation-payment.json",
+    "prefixes": [
+      {
+        "throughSequence": 1,
+        "severity": "none"
+      },
+      {
+        "throughSequence": 2,
+        "severity": "none"
+      },
+      {
+        "throughSequence": 3,
+        "severity": "high"
+      }
+    ],
+    "providerMode": "synthetic-mock"
+  },
+  {
+    "fixture": "escalation-benign.json",
+    "prefixes": [
+      {
+        "throughSequence": 1,
+        "severity": "none"
+      },
+      {
+        "throughSequence": 2,
+        "severity": "none"
+      },
+      {
+        "throughSequence": 3,
+        "severity": "none"
+      },
+      {
+        "throughSequence": 4,
+        "severity": "none"
+      }
+    ],
+    "providerMode": "synthetic-mock"
+  }
+]

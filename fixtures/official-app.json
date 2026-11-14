@@ -1,0 +1,16 @@
+[
+  {
+    "callId": "official-app", "sequence": 1,
+    "segment": {
+      "id": "official-1", "speaker": "track-a", "startedAtMs": 0, "endedAtMs": 1800,
+      "text": "Open the official app yourself using your usual shortcut.", "final": true
+    }
+  },
+  {
+    "callId": "official-app", "sequence": 2,
+    "segment": {
+      "id": "official-2", "speaker": "track-a", "startedAtMs": 2000, "endedAtMs": 4000,
+      "text": "Please enter your verification code in your own official app. Never read it out to me.", "final": true
+    }
+  }
+]

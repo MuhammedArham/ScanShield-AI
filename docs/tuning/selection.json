@@ -1,0 +1,15 @@
+{
+  "selectedBeforeWithheldEvaluation": true,
+  "promptFile": "tools/tuning/prompt-candidate-03.txt",
+  "promptSha256": "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d",
+  "effort": "low",
+  "temperature": "default",
+  "model": "gpt-oss-120b",
+  "developmentReport": "docs/tuning/candidate-03-low-dev.json",
+  "baselineReport": "docs/tuning/baseline-dev-complete.json",
+  "developmentPassed": 24,
+  "developmentCases": 24,
+  "baselinePassed": 20,
+  "reason": "All development gates passed without provider/validation errors. No high/critical benign warning. Current-engine replay also passes 24/24. Configuration selected as a combined prompt/effort change, not isolated causal attribution.",
+  "withheldPolicy": "No further prompt tuning based on check outputs. Adopt only if not worse overall than baseline, without new dangerous-request misses or benign high/critical warnings."
+}

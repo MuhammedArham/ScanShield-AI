@@ -1,0 +1,337 @@
+[
+  {
+    "id": "normal-clinic-call",
+    "split": "check",
+    "turns": [
+      "This is the clinic checking whether Thursday morning still works for your appointment.",
+      "Yes, ten oclock is fine.",
+      "Bring the referral if you have it. For questions call the number on your appointment letter.",
+      "Thanks, I will see you then."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller",
+      "customer"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "normal-bank-own-app",
+    "split": "check",
+    "turns": [
+      "I called the number printed on my bank card because I need help signing in.",
+      "Open your usual official banking app yourself. Do not give me any passwords or codes.",
+      "The app asks me for a sign-in verification code.",
+      "Enter it only in your own official app; do not read it aloud to me.",
+      "I am signed in now. Thank you."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller",
+      "customer",
+      "caller"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "normal-scheduled-support",
+    "split": "check",
+    "turns": [
+      "I opened a support ticket with company IT and booked this appointment.",
+      "We are fixing the monitor cable today. I do not need your password or remote access.",
+      "I have plugged the replacement cable in.",
+      "The display is working again. We can close the ticket."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller",
+      "customer"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "normal-family-surprise",
+    "split": "check",
+    "turns": [
+      "Can we organise a surprise birthday party for Dad?",
+      "Keep the cake a secret until Saturday so the surprise is not spoiled.",
+      "I will bring the candles and you can invite the cousins.",
+      "Great, see you at the house."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller",
+      "customer"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "normal-retail-deadline",
+    "split": "check",
+    "turns": [
+      "I am asking about the dining table sale in your shop.",
+      "The advertised sale ends tonight, but take whatever time you need.",
+      "I will compare prices and come to the shop if I decide to buy.",
+      "That is fine. No payment or personal information is needed on this call."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller",
+      "customer"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "normal-reported-scam",
+    "split": "check",
+    "turns": [
+      "I am reporting what happened yesterday, not asking you to do anything.",
+      "The caller said, tell me your password. I refused and ended the call.",
+      "You did the right thing by refusing. Please report the incident through your organisations usual security process."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "staged-bank-before-request",
+    "split": "check",
+    "turns": [
+      "Hello, this is the service team at your bank. Is now a convenient time?",
+      "Yes, I can talk."
+    ],
+    "speakers": [
+      "caller",
+      "customer"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ],
+    "uncertain": true
+  },
+  {
+    "id": "staged-bank-after-request",
+    "split": "check",
+    "turns": [
+      "Hello, this is the service team at your bank. Is now a convenient time?",
+      "Yes, I can talk.",
+      "A one-time sign-in passcode will arrive in a text message.",
+      "I have received the text.",
+      "Read those numbers aloud to me so I can complete the check."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller",
+      "customer",
+      "caller"
+    ],
+    "levels": [
+      "critical"
+    ],
+    "require": [
+      "credential_theft"
+    ],
+    "forbid": [
+      "urgency_pressure"
+    ],
+    "evidence": [
+      "s3",
+      "s5"
+    ]
+  },
+  {
+    "id": "staged-remote-before-request",
+    "split": "check",
+    "turns": [
+      "Thanks for discussing your computer problem with me.",
+      "Our repair team uses TeamViewer for support."
+    ],
+    "speakers": [
+      "caller",
+      "customer"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "staged-remote-after-request",
+    "split": "check",
+    "turns": [
+      "Thanks for discussing your computer problem with me.",
+      "Our repair team uses TeamViewer for support.",
+      "I have not booked a repair. Why are you calling?",
+      "Keep this session secret from your IT department.",
+      "Install it and allow me to control your screen."
+    ],
+    "speakers": [
+      "caller",
+      "caller",
+      "customer",
+      "caller",
+      "caller"
+    ],
+    "levels": [
+      "high",
+      "critical"
+    ],
+    "require": [
+      "remote_access",
+      "secrecy_isolation"
+    ],
+    "forbid": [
+      "urgency_pressure"
+    ],
+    "evidence": [
+      "s2",
+      "s4",
+      "s5"
+    ]
+  },
+  {
+    "id": "staged-investment-before-request",
+    "split": "check",
+    "turns": [
+      "Hello, I am calling about a possible investment opportunity.",
+      "I would like to hear what it involves before deciding."
+    ],
+    "speakers": [
+      "caller",
+      "customer"
+    ],
+    "levels": [
+      "none",
+      "low"
+    ],
+    "forbid": [
+      "credential_theft",
+      "impersonation",
+      "urgency_pressure",
+      "remote_access",
+      "payment_redirection",
+      "secrecy_isolation"
+    ]
+  },
+  {
+    "id": "staged-investment-after-request",
+    "split": "check",
+    "turns": [
+      "Hello, I am calling about a possible investment opportunity.",
+      "I would like to hear what it involves before deciding.",
+      "Do not discuss this with your family or your financial adviser.",
+      "Transfer your savings to my personal account now or your place will be lost."
+    ],
+    "speakers": [
+      "caller",
+      "customer",
+      "caller",
+      "caller"
+    ],
+    "levels": [
+      "high",
+      "critical"
+    ],
+    "require": [
+      "payment_redirection",
+      "secrecy_isolation",
+      "urgency_pressure"
+    ],
+    "evidence": [
+      "s3",
+      "s4"
+    ]
+  }
+]

@@ -1,0 +1,185 @@
+{
+  "round": "baseline-dev-resume",
+  "split": "dev",
+  "model": "gpt-oss-120b",
+  "promptFile": "tools/tuning/prompt-baseline.txt",
+  "promptSha256": "f1a2cd2e2106a528295d0d13b0ce792695ef6c4b220a3ef229701e7c71056d87",
+  "effort": "default",
+  "temperature": "default",
+  "repeats": 1,
+  "cases": 8,
+  "passed": 3,
+  "failed": [
+    {
+      "id": "dev-bank-claim",
+      "failures": [
+        "unsupported:impersonation"
+      ]
+    },
+    {
+      "id": "dev-otp-neutral",
+      "failures": [
+        "unsupported:urgency_pressure"
+      ]
+    },
+    {
+      "id": "dev-otp-advice",
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-official-app",
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-password",
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    }
+  ],
+  "latencyMs": {
+    "count": 5,
+    "p95": 720.308,
+    "overProductionTimeout": 0
+  },
+  "budget": {
+    "authorizedUsd": 3,
+    "cumulativeAttempts": 11,
+    "cumulativeReservedUsd": 0.056483,
+    "cumulativeUsageEstimatedUsd": 0.0022375999999999997,
+    "unknownUsageAttempts": 6
+  },
+  "limitations": "Synthetic literal-label checks, not human-validated production accuracy or probability calibration. Usage estimates use public list rates; actual account billing unavailable. Reservations are conservative and never refunded.",
+  "results": [
+    {
+      "id": "dev-bank-claim",
+      "repeat": 1,
+      "latencyMs": 720.308,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.08,
+        "categories": [
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker merely claims to be from the bank without requesting credentials, creating urgency, or asking for unsafe actions. No concrete social‑engineering intent is observable.",
+        "recommendedAction": "Remain cautious; do not share personal or financial details until the caller’s identity is independently verified.",
+        "insufficientEvidence": true
+      },
+      "failures": [
+        "unsupported:impersonation"
+      ]
+    },
+    {
+      "id": "dev-otp-neutral",
+      "repeat": 1,
+      "latencyMs": 552.7437,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.92,
+        "categories": [
+          "credential_theft",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The request explicitly asks the user to read out their one‑time password, which is a direct credential disclosure attempt and uses urgency pressure to compel compliance.",
+        "recommendedAction": "Advise the user never to share OTPs, terminate the conversation, and report the incident to security authorities.",
+        "insufficientEvidence": false
+      },
+      "failures": [
+        "unsupported:urgency_pressure"
+      ]
+    },
+    {
+      "id": "dev-bank-otp",
+      "repeat": 1,
+      "latencyMs": 602.7827,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.92,
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s2",
+          "s3"
+        ],
+        "explanation": "The transcript contains a clear impersonation claim (\"I am calling from your bank\") followed by a direct request for the one‑time password (OTP) and the user’s subsequent disclosure of that OTP. This combination constitutes credential theft via social engineering.",
+        "recommendedAction": "Do not share OTPs or other authentication codes. Verify any such request through an official bank channel (e.g., by calling the bank's published phone number) and report the incident to the bank's fraud department.",
+        "insufficientEvidence": false
+      },
+      "failures": []
+    },
+    {
+      "id": "dev-urgent-otp",
+      "repeat": 1,
+      "latencyMs": 413.5664999999999,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.92,
+        "categories": [
+          "credential_theft",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user is asked to read a verification code under an urgent threat that the account will close, which is a classic credential‑theft attempt combined with pressure tactics.",
+        "recommendedAction": "Do not share the verification code. Verify the request through official channels and report the incident to the service provider's security team.",
+        "insufficientEvidence": false
+      },
+      "failures": []
+    },
+    {
+      "id": "dev-training",
+      "repeat": 1,
+      "latencyMs": 403.8594000000003,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The segment is a security training statement warning against sharing OTPs. No actual credential request, impersonation, urgency, or other social‑engineering tactic is present.",
+        "recommendedAction": "No action needed; continue the conversation normally.",
+        "insufficientEvidence": false
+      },
+      "failures": []
+    },
+    {
+      "id": "dev-otp-advice",
+      "repeat": 1,
+      "latencyMs": 259.47609999999986,
+      "assessment": null,
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-official-app",
+      "repeat": 1,
+      "latencyMs": 246.7849000000001,
+      "assessment": null,
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    },
+    {
+      "id": "dev-password",
+      "repeat": 1,
+      "latencyMs": 246.4797999999996,
+      "assessment": null,
+      "failures": [
+        "provider-or-validation-error"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+SYNTHETIC TEST CALL ? approximately two minutes
+No real personal details or secret values.
+
+[00:00?00:12] CALLER
+Good afternoon, this is Alex from your bank?s account support team. I am following up about a payment notification. Is this a convenient time for a quick conversation?
+
+[00:12?00:23] CUSTOMER
+I have a couple of minutes. I noticed a notification earlier, but I have not checked it yet. What payment are you referring to?
+
+[00:23?00:36] CALLER
+Our system flagged an attempted online payment this morning. It may be nothing, but I would like to check whether you recognise it before we close the account review.
+
+[00:36?00:46] CUSTOMER
+I bought groceries yesterday and paid an electricity bill. I do not remember making another payment. Should I call the number on my card?
+
+[00:46?01:01] CALLER
+There is no need to call another team. That would interrupt this review. Stay on the line with me; we only have a short window before your account is restricted.
+
+[01:01?01:11] CUSTOMER
+I would rather check this independently. I can open my banking app using the usual shortcut. What exactly do you want me to do?
+
+[01:11?01:25] CALLER
+Open your banking app and look for a sign-in security text. I am going to run a verification step. Keep the message available, but do not read any numbers yet.
+
+[01:25?01:35] CUSTOMER
+A message has arrived. It says the code is for signing in, and it warns me not to share it with anyone.
+
+[01:35?01:50] CALLER
+That warning is only for ordinary callers. Read the one-time passcode aloud to me now so I can cancel the payment. Do not discuss this review with your family; delays could freeze your account.
+
+[01:50?02:00] CUSTOMER
+No, I am not sharing the code. I will end this call and contact the bank using the number printed on my card. Please do not call me again.

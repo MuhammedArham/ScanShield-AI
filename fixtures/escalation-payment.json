@@ -1,0 +1,38 @@
+[
+  {
+    "callId": "escalation-payment",
+    "sequence": 1,
+    "segment": {
+      "id": "s1",
+      "speaker": "track-b",
+      "startedAtMs": 0,
+      "endedAtMs": 1900,
+      "text": "Hello, thank you for taking my call.",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-payment",
+    "sequence": 2,
+    "segment": {
+      "id": "s2",
+      "speaker": "track-b",
+      "startedAtMs": 2000,
+      "endedAtMs": 3900,
+      "text": "We need to transfer your money.",
+      "final": true
+    }
+  },
+  {
+    "callId": "escalation-payment",
+    "sequence": 3,
+    "segment": {
+      "id": "s3",
+      "speaker": "track-b",
+      "startedAtMs": 4000,
+      "endedAtMs": 5900,
+      "text": "Please do it immediately.",
+      "final": true
+    }
+  }
+]

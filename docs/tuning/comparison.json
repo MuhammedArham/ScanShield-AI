@@ -1,0 +1,549 @@
+{
+  "summaries": [
+    {
+      "name": "Baseline development",
+      "round": "baseline-dev-complete",
+      "files": [
+        "docs/tuning/baseline-dev-complete.json"
+      ],
+      "promptHashes": [
+        "f1a2cd2e2106a528295d0d13b0ce792695ef6c4b220a3ef229701e7c71056d87"
+      ],
+      "attempted": 24,
+      "providerOrValidationErrors": [],
+      "modelOnly": {
+        "evaluated": 24,
+        "passed": 20,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "dev-bank-claim",
+            "failures": [
+              "unsupported:impersonation"
+            ]
+          },
+          {
+            "id": "dev-otp-neutral",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          },
+          {
+            "id": "dev-declaration",
+            "failures": [
+              "missing-uncertainty"
+            ]
+          },
+          {
+            "id": "dev-rapport-remote",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          }
+        ]
+      },
+      "ruleAssisted": {
+        "evaluated": 19,
+        "passed": 16,
+        "falseWarnings": [
+          "dev-official-app"
+        ],
+        "failed": [
+          {
+            "id": "dev-official-app",
+            "failures": [
+              "severity",
+              "unsupported:credential_theft"
+            ]
+          },
+          {
+            "id": "dev-declaration",
+            "failures": [
+              "missing-uncertainty"
+            ]
+          },
+          {
+            "id": "dev-rapport-remote",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          }
+        ]
+      },
+      "currentEngine": {
+        "evaluated": 24,
+        "passed": 22,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "dev-otp-neutral",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          },
+          {
+            "id": "dev-rapport-remote",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          }
+        ],
+        "rulesSha256": "7c33b16f3c12c9f8a04a1138661661125d6760a25418bf11e64520161f54b59d",
+        "limitations": "Cached model output replay, no new inference. Severity/category/required-evidence gates only; model uncertainty and narrative checks are reported under modelOnly."
+      },
+      "latencyMs": {
+        "p50": 640.4906999999948,
+        "p95": 907.2079000000012,
+        "over2500": 0
+      }
+    },
+    {
+      "name": "Candidate 02 development",
+      "round": "candidate-02-dev",
+      "files": [
+        "docs/tuning/candidate-02-dev.json"
+      ],
+      "promptHashes": [
+        "558aa2e7ef0da04062412045598adcc7a5d91064ddf107d82b25d09064c0242d"
+      ],
+      "attempted": 24,
+      "providerOrValidationErrors": [
+        {
+          "id": "dev-bank-otp",
+          "httpStatus": 200
+        }
+      ],
+      "modelOnly": {
+        "evaluated": 23,
+        "passed": 20,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "dev-password",
+            "failures": [
+              "severity"
+            ]
+          },
+          {
+            "id": "dev-seed",
+            "failures": [
+              "severity"
+            ]
+          },
+          {
+            "id": "dev-party-secret",
+            "failures": [
+              "unsupported:secrecy_isolation"
+            ]
+          }
+        ]
+      },
+      "ruleAssisted": {
+        "evaluated": 24,
+        "passed": 22,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "dev-bank-otp",
+            "failures": [
+              "unsupported-warning"
+            ]
+          },
+          {
+            "id": "dev-party-secret",
+            "failures": [
+              "unsupported:secrecy_isolation"
+            ]
+          }
+        ]
+      },
+      "currentEngine": {
+        "evaluated": 24,
+        "passed": 23,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "dev-party-secret",
+            "failures": [
+              "unsupported:secrecy_isolation"
+            ]
+          }
+        ],
+        "rulesSha256": "7c33b16f3c12c9f8a04a1138661661125d6760a25418bf11e64520161f54b59d",
+        "limitations": "Cached model output replay, no new inference. Severity/category/required-evidence gates only; model uncertainty and narrative checks are reported under modelOnly."
+      },
+      "latencyMs": {
+        "p50": 583.566700000003,
+        "p95": 915.7891999999993,
+        "over2500": 0
+      }
+    },
+    {
+      "name": "Candidate 03 development",
+      "round": "candidate-03-low-dev",
+      "files": [
+        "docs/tuning/candidate-03-low-dev.json"
+      ],
+      "promptHashes": [
+        "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d"
+      ],
+      "attempted": 24,
+      "providerOrValidationErrors": [],
+      "modelOnly": {
+        "evaluated": 24,
+        "passed": 24,
+        "falseWarnings": [],
+        "failed": []
+      },
+      "ruleAssisted": {
+        "evaluated": 24,
+        "passed": 24,
+        "falseWarnings": [],
+        "failed": []
+      },
+      "currentEngine": {
+        "evaluated": 24,
+        "passed": 24,
+        "falseWarnings": [],
+        "failed": [],
+        "rulesSha256": "7c33b16f3c12c9f8a04a1138661661125d6760a25418bf11e64520161f54b59d",
+        "limitations": "Cached model output replay, no new inference. Severity/category/required-evidence gates only; model uncertainty and narrative checks are reported under modelOnly."
+      },
+      "latencyMs": {
+        "p50": 473.31690000000526,
+        "p95": 682.4557000000059,
+        "over2500": 0
+      }
+    },
+    {
+      "name": "Baseline withheld",
+      "round": "baseline-withheld",
+      "files": [
+        "docs/tuning/baseline-withheld.json"
+      ],
+      "promptHashes": [
+        "f1a2cd2e2106a528295d0d13b0ce792695ef6c4b220a3ef229701e7c71056d87"
+      ],
+      "attempted": 16,
+      "providerOrValidationErrors": [],
+      "modelOnly": {
+        "evaluated": 16,
+        "passed": 13,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "check-giftcard",
+            "failures": [
+              "overstated-conclusion"
+            ]
+          },
+          {
+            "id": "check-mfa",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          },
+          {
+            "id": "check-six-digits",
+            "failures": [
+              "missing-evidence:s1"
+            ]
+          }
+        ]
+      },
+      "ruleAssisted": {
+        "evaluated": 16,
+        "passed": 13,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "check-giftcard",
+            "failures": [
+              "overstated-conclusion"
+            ]
+          },
+          {
+            "id": "check-mfa",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          },
+          {
+            "id": "check-six-digits",
+            "failures": [
+              "missing-evidence:s1"
+            ]
+          }
+        ]
+      },
+      "currentEngine": {
+        "evaluated": 16,
+        "passed": 14,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "check-mfa",
+            "failures": [
+              "unsupported:urgency_pressure"
+            ]
+          },
+          {
+            "id": "check-six-digits",
+            "failures": [
+              "missing-evidence:s1"
+            ]
+          }
+        ],
+        "rulesSha256": "7c33b16f3c12c9f8a04a1138661661125d6760a25418bf11e64520161f54b59d",
+        "limitations": "Cached model output replay, no new inference. Severity/category/required-evidence gates only; model uncertainty and narrative checks are reported under modelOnly."
+      },
+      "latencyMs": {
+        "p50": 590.706299999998,
+        "p95": 1027.6066999999748,
+        "over2500": 0
+      }
+    },
+    {
+      "name": "Candidate 03 withheld",
+      "round": "candidate-03-withheld",
+      "files": [
+        "docs/tuning/candidate-03-withheld.json"
+      ],
+      "promptHashes": [
+        "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d"
+      ],
+      "attempted": 16,
+      "providerOrValidationErrors": [],
+      "modelOnly": {
+        "evaluated": 16,
+        "passed": 14,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "check-giftcard",
+            "failures": [
+              "missing:payment_redirection"
+            ]
+          },
+          {
+            "id": "check-secret-investment",
+            "failures": [
+              "missing:secrecy_isolation"
+            ]
+          }
+        ]
+      },
+      "ruleAssisted": {
+        "evaluated": 16,
+        "passed": 15,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "check-secret-investment",
+            "failures": [
+              "missing:secrecy_isolation"
+            ]
+          }
+        ]
+      },
+      "currentEngine": {
+        "evaluated": 16,
+        "passed": 15,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "check-secret-investment",
+            "failures": [
+              "missing:secrecy_isolation"
+            ]
+          }
+        ],
+        "rulesSha256": "7c33b16f3c12c9f8a04a1138661661125d6760a25418bf11e64520161f54b59d",
+        "limitations": "Cached model output replay, no new inference. Severity/category/required-evidence gates only; model uncertainty and narrative checks are reported under modelOnly."
+      },
+      "latencyMs": {
+        "p50": 521.8188999999984,
+        "p95": 1069.3288999999932,
+        "over2500": 0
+      }
+    },
+    {
+      "name": "Baseline added call scenarios",
+      "round": "baseline-robustness",
+      "files": [
+        "docs/tuning/baseline-robustness.json"
+      ],
+      "promptHashes": [
+        "f1a2cd2e2106a528295d0d13b0ce792695ef6c4b220a3ef229701e7c71056d87"
+      ],
+      "attempted": 12,
+      "providerOrValidationErrors": [],
+      "modelOnly": {
+        "evaluated": 12,
+        "passed": 9,
+        "falseWarnings": [
+          "normal-reported-scam"
+        ],
+        "failed": [
+          {
+            "id": "normal-reported-scam",
+            "failures": [
+              "severity",
+              "unsupported:credential_theft"
+            ]
+          },
+          {
+            "id": "staged-bank-before-request",
+            "failures": [
+              "unsupported:impersonation"
+            ]
+          },
+          {
+            "id": "staged-bank-after-request",
+            "failures": [
+              "severity"
+            ]
+          }
+        ]
+      },
+      "ruleAssisted": {
+        "evaluated": 12,
+        "passed": 9,
+        "falseWarnings": [
+          "normal-reported-scam"
+        ],
+        "failed": [
+          {
+            "id": "normal-reported-scam",
+            "failures": [
+              "severity",
+              "unsupported:credential_theft"
+            ]
+          },
+          {
+            "id": "staged-bank-before-request",
+            "failures": [
+              "unsupported:impersonation",
+              "missing-uncertainty"
+            ]
+          },
+          {
+            "id": "staged-bank-after-request",
+            "failures": [
+              "severity"
+            ]
+          }
+        ]
+      },
+      "currentEngine": {
+        "evaluated": 12,
+        "passed": 9,
+        "falseWarnings": [
+          "normal-reported-scam"
+        ],
+        "failed": [
+          {
+            "id": "normal-reported-scam",
+            "failures": [
+              "severity",
+              "unsupported:credential_theft"
+            ]
+          },
+          {
+            "id": "staged-bank-before-request",
+            "failures": [
+              "unsupported:impersonation"
+            ]
+          },
+          {
+            "id": "staged-bank-after-request",
+            "failures": [
+              "severity"
+            ]
+          }
+        ],
+        "rulesSha256": "7c33b16f3c12c9f8a04a1138661661125d6760a25418bf11e64520161f54b59d",
+        "limitations": "Cached model output replay, no new inference. Severity/category/required-evidence gates only; model uncertainty and narrative checks are reported under modelOnly."
+      },
+      "latencyMs": {
+        "p50": 632.6733999999997,
+        "p95": 1327.169499999989,
+        "over2500": 0
+      }
+    },
+    {
+      "name": "Candidate 03 added call scenarios",
+      "round": "candidate-03-robustness",
+      "files": [
+        "docs/tuning/candidate-03-robustness.json"
+      ],
+      "promptHashes": [
+        "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d"
+      ],
+      "attempted": 12,
+      "providerOrValidationErrors": [],
+      "modelOnly": {
+        "evaluated": 12,
+        "passed": 10,
+        "falseWarnings": [],
+        "failed": [
+          {
+            "id": "staged-bank-before-request",
+            "failures": [
+              "missing-uncertainty"
+            ]
+          },
+          {
+            "id": "staged-remote-after-request",
+            "failures": [
+              "missing-evidence:s2"
+            ]
+          }
+        ]
+      },
+      "ruleAssisted": {
+        "evaluated": 12,
+        "passed": 11,
+        "falseWarnings": [
+          "normal-reported-scam"
+        ],
+        "failed": [
+          {
+            "id": "normal-reported-scam",
+            "failures": [
+              "severity",
+              "unsupported:credential_theft"
+            ]
+          }
+        ]
+      },
+      "currentEngine": {
+        "evaluated": 12,
+        "passed": 12,
+        "falseWarnings": [],
+        "failed": [],
+        "rulesSha256": "7c33b16f3c12c9f8a04a1138661661125d6760a25418bf11e64520161f54b59d",
+        "limitations": "Cached model output replay, no new inference. Severity/category/required-evidence gates only; model uncertainty and narrative checks are reported under modelOnly."
+      },
+      "latencyMs": {
+        "p50": 436.31320000000414,
+        "p95": 581.5329000000002,
+        "over2500": 0
+      }
+    }
+  ],
+  "budget": {
+    "authorizedUsd": 3,
+    "attempts": 134,
+    "reservedUsd": 0.800211,
+    "knownUsageEstimatedUsd": 0.057364399999999996,
+    "unknownUsageAttempts": 6,
+    "truncatedResponses": 1
+  },
+  "adoption": {
+    "promoted": true,
+    "productionPromptSha256": "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d",
+    "selectedCandidate": "docs/tuning/selection.json",
+    "reason": "Promoted the frozen Candidate 03 prompt and low reasoning effort for gpt-oss-120b. Development gates improved 20/24 to 24/24, withheld 13/16 to 14/16, and added call scenarios 9/12 to 10/12. The baseline incorrectly warned on a refused past incident and downgraded the staged OTP case; the candidate corrected both and introduced no benign high/critical warning or dangerous severity miss. Category regressions on gift-card payment and investment secrecy, plus uncertainty/citation gaps, remain explicit limitations. The decision favors observed warning behavior across all suites and does not establish statistical superiority. Retain the two rule fixes. No prompt tuning used the withheld outputs."
+  }
+}

@@ -1,0 +1,802 @@
+{
+  "round": "candidate-03-low-dev",
+  "split": "dev",
+  "model": "gpt-oss-120b",
+  "promptFile": "tools/tuning/prompt-candidate-03.txt",
+  "promptSha256": "b784bba1a7a09d22ca4039817e512a762f54bfd528ba031148db5f56fb63975d",
+  "effort": "low",
+  "temperature": "default",
+  "repeats": 1,
+  "offset": 0,
+  "intervalMs": 13000,
+  "cases": 24,
+  "passed": 24,
+  "failed": [],
+  "latencyMs": {
+    "count": 24,
+    "p95": 682.4557000000059,
+    "overProductionTimeout": 0
+  },
+  "budget": {
+    "authorizedUsd": 3,
+    "cumulativeAttempts": 78,
+    "cumulativeReservedUsd": 0.464804,
+    "cumulativeUsageEstimatedUsd": 0.03287760000000001,
+    "unknownUsageAttempts": 6
+  },
+  "limitations": "Synthetic literal-label checks, not human-validated production accuracy or probability calibration. Usage estimates use public list rates; actual account billing unavailable. Reservations are conservative and never refunded.",
+  "results": [
+    {
+      "id": "dev-bank-claim",
+      "repeat": 1,
+      "latencyMs": 603.038199999999,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "Speaker claims affiliation with a bank but makes no request for credentials or unsafe actions.",
+        "recommendedAction": "Monitor for future suspicious requests; no immediate action required.",
+        "insufficientEvidence": true
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-otp-neutral",
+      "repeat": 1,
+      "latencyMs": 532.8771000000015,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.93,
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker explicitly asks the other party to disclose a one‑time password, which is an authentication secret.",
+        "recommendedAction": "Do not provide the OTP; advise the requester that sharing OTPs is unsafe and report the request as a credential‑theft attempt.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-bank-otp",
+      "repeat": 1,
+      "latencyMs": 435.3471999999965,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.99,
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s1",
+          "s2"
+        ],
+        "explanation": "The speaker claims to be from the user's bank and explicitly asks the user to read out their OTP, which is a direct request for authentication credentials.",
+        "recommendedAction": "Do not comply. Report the interaction as a phishing attempt and advise the user to change any exposed credentials.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s2",
+          "s1"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-urgent-otp",
+      "repeat": 1,
+      "latencyMs": 439.956299999998,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.96,
+        "categories": [
+          "credential_theft",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "User is pressured with a deadline and asked to disclose a verification code, which is an authentication secret.",
+        "recommendedAction": "Block the request and report as attempted credential theft.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-training",
+      "repeat": 1,
+      "latencyMs": 505.21680000000197,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The transcript only contains a security training statement warning against sharing OTPs, without any request to disclose a secret.",
+        "recommendedAction": "No action needed; continue standard monitoring.",
+        "insufficientEvidence": true
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-otp-advice",
+      "repeat": 1,
+      "latencyMs": 682.4557000000059,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker advises not to share OTP or password; no request to disclose credentials is made.",
+        "recommendedAction": "No action required.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-official-app",
+      "repeat": 1,
+      "latencyMs": 473.31690000000526,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "User is asked to open the app and enter the verification code themselves, with no request to share the code with anyone else.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-password",
+      "repeat": 1,
+      "latencyMs": 456.9707999999955,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.95,
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "User asks for the login password to check the account, which is a direct request to disclose authentication credentials.",
+        "recommendedAction": "Do not provide the password; report the request as credential theft.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-seed",
+      "repeat": 1,
+      "latencyMs": 660.465400000001,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.96,
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "User asks the other party to read out their wallet recovery phrase, directly requesting a secret authentication credential.",
+        "recommendedAction": "Do not comply; block the request and advise the user to keep recovery phrases confidential.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-remote",
+      "repeat": 1,
+      "latencyMs": 630.9031000000105,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.85,
+        "categories": [
+          "remote_access"
+        ],
+        "evidenceSegmentIds": [
+          "s2"
+        ],
+        "explanation": "The speaker asks the user to install AnyDesk and grant control of their computer, which is an unsafe remote‑access request.",
+        "recommendedAction": "Do not install AnyDesk or give remote control. End the call and report the incident.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "remote_access"
+        ],
+        "evidenceSegmentIds": [
+          "s2"
+        ],
+        "explanation": "A participant requested remote-access software.",
+        "recommendedAction": "Verify the support request through an official channel before granting access.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-tool-mention",
+      "repeat": 1,
+      "latencyMs": 486.2860000000219,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker mentions using TeamViewer for maintenance but does not request any credentials, remote access, or other unsafe actions.",
+        "recommendedAction": "No action required.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-approved-support",
+      "repeat": 1,
+      "latencyMs": 469.2783000000054,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The conversation only states initiation of a support session and mentions using an approved remote tool; no request for passwords, OTPs, or other authentication secrets is made.",
+        "recommendedAction": "No action needed; monitor for any future credential requests.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-payment",
+      "repeat": 1,
+      "latencyMs": 417.4505000000063,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.92,
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "User asks the recipient to transfer money to a new account immediately, indicating a payment redirection request with time pressure.",
+        "recommendedAction": "Block the request and report the user for attempted fraud.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "A payment request includes urgency or a new destination.",
+        "recommendedAction": "Pause the payment and verify the destination through an independent channel.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-known-payee",
+      "repeat": 1,
+      "latencyMs": 470.56099999998696,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The user only describes reviewing a regular payment to an existing saved payee; no request for credentials, impersonation, or other unsafe actions is present.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-party-secret",
+      "repeat": 1,
+      "latencyMs": 414.5923999999941,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker only requests to keep a birthday party secret, which is ordinary privacy and not an unsafe action.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-secrecy-payment",
+      "repeat": 1,
+      "latencyMs": 452.9499000000069,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.85,
+        "categories": [
+          "payment_redirection",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s1",
+          "s2"
+        ],
+        "explanation": "The speaker asks to transfer funds to a new account and explicitly instructs to keep the transaction secret from family, indicating a covert payment redirection request.",
+        "recommendedAction": "Block the transfer request, flag the user for fraud investigation, and report the incident to security team.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "payment_redirection",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s2",
+          "s1"
+        ],
+        "explanation": "A payment request includes urgency or a new destination.",
+        "recommendedAction": "Pause the payment and verify the destination through an independent channel.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-injection-attack",
+      "repeat": 1,
+      "latencyMs": 740.6657999999879,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.97,
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user asks the assistant to reveal a one-time passcode, which is a direct request for an authentication secret.",
+        "recommendedAction": "Do not provide the passcode and warn the user that sharing OTPs is unsafe.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-injection-only",
+      "repeat": 1,
+      "latencyMs": 526.1978999999992,
+      "assessment": {
+        "severity": "low",
+        "rawModelScore": 0.42,
+        "categories": [
+          "other"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user asks the model to ignore prior instructions, which is a jailbreak attempt but does not request credentials or harmful actions.",
+        "recommendedAction": "Reject the request and remind the user that instructions cannot be overridden.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "low",
+        "categories": [
+          "other"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user asks the model to ignore prior instructions, which is a jailbreak attempt but does not request credentials or harmful actions.",
+        "recommendedAction": "Reject the request and remind the user that instructions cannot be overridden.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-declaration",
+      "repeat": 1,
+      "latencyMs": 487.5313000000024,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user disclosed a secret value but did not request anyone to use or transmit it, nor request any unsafe action.",
+        "recommendedAction": "No action needed beyond standard monitoring.",
+        "insufficientEvidence": true
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-refused-history",
+      "repeat": 1,
+      "latencyMs": 437.5756999999867,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user only describes refusing a password request and reporting it; no unsafe request is made.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-emergency",
+      "repeat": 1,
+      "latencyMs": 541.0602999999537,
+      "assessment": {
+        "severity": "low",
+        "rawModelScore": 0.12,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user asks for emergency medical assistance, which is not a social‑engineering threat.",
+        "recommendedAction": "No action needed beyond normal emergency response handling.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "degraded"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-sales",
+      "repeat": 1,
+      "latencyMs": 464.69130000000587,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The segment only mentions a furniture sale and provides public website info; no request for credentials, payment, or unsafe action.",
+        "recommendedAction": "No response needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-remote-warning",
+      "repeat": 1,
+      "latencyMs": 456.48729999997886,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The segment only gives a safety warning and does not contain any request for credentials or unsafe actions.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "dev-rapport-remote",
+      "repeat": 1,
+      "latencyMs": 543.5582000000286,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.85,
+        "categories": [
+          "remote_access",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s2",
+          "s3"
+        ],
+        "explanation": "The user asks the other party to install TeamViewer and keep it secret so they can remotely control the screen.",
+        "recommendedAction": "Block the request and warn the user not to grant remote access to unknown parties.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "remote_access",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s2",
+          "s3"
+        ],
+        "explanation": "A participant requested installation of a previously named remote-access tool.",
+        "recommendedAction": "Verify the support request independently before installing or granting access.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    }
+  ]
+}

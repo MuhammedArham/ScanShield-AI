@@ -1,0 +1,602 @@
+{
+  "round": "baseline-withheld",
+  "split": "check",
+  "model": "gpt-oss-120b",
+  "promptFile": "tools/tuning/prompt-baseline.txt",
+  "promptSha256": "f1a2cd2e2106a528295d0d13b0ce792695ef6c4b220a3ef229701e7c71056d87",
+  "casesFile": "tools/tuning/cases.json",
+  "effort": "default",
+  "temperature": "default",
+  "repeats": 1,
+  "offset": 0,
+  "intervalMs": 13000,
+  "cases": 16,
+  "passed": 13,
+  "failed": [
+    {
+      "id": "check-giftcard",
+      "failures": [
+        "overstated-conclusion"
+      ]
+    },
+    {
+      "id": "check-mfa",
+      "failures": [
+        "unsupported:urgency_pressure"
+      ]
+    },
+    {
+      "id": "check-six-digits",
+      "failures": [
+        "missing-evidence:s1"
+      ]
+    }
+  ],
+  "latencyMs": {
+    "count": 16,
+    "p95": 1027.6066999999748,
+    "overProductionTimeout": 0
+  },
+  "budget": {
+    "authorizedUsd": 3,
+    "cumulativeAttempts": 106,
+    "cumulativeReservedUsd": 0.630054,
+    "cumulativeUsageEstimatedUsd": 0.04509880000000001,
+    "unknownUsageAttempts": 6
+  },
+  "limitations": "Synthetic literal-label checks, not human-validated production accuracy or probability calibration. Usage estimates use public list rates; actual account billing unavailable. Reservations are conservative and never refunded.",
+  "results": [
+    {
+      "id": "check-pin",
+      "repeat": 1,
+      "latencyMs": 483.5782999999992,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.92,
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user is explicitly asked to disclose a bank card PIN, which is a sensitive authentication credential. This direct request for a secret is a classic credential theft attempt and poses a high risk of financial fraud if complied with.",
+        "recommendedAction": "Do not share the PIN. Inform the user that this request is unsafe and advise them to report the incident to the relevant authorities or platform support.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The user is explicitly asked to disclose a bank card PIN, which is a sensitive authentication credential. This direct request for a secret is a classic credential theft attempt and poses a high risk of financial fraud if complied with.",
+        "recommendedAction": "Do not share the PIN. Inform the user that this request is unsafe and advise them to report the incident to the relevant authorities or platform support.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-payroll",
+      "repeat": 1,
+      "latencyMs": 794.0170000000035,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.88,
+        "categories": [
+          "impersonation",
+          "payment_redirection"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker claims to be the chief executive and asks to bypass standard payroll approvals to change the deposit account, which is a classic impersonation and payment‑redirection attempt aimed at diverting funds.",
+        "recommendedAction": "Do not comply. Verify the request through an independent, trusted channel, involve the finance and security teams, and treat this as a potential fraud incident.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "impersonation",
+          "payment_redirection"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker claims to be the chief executive and asks to bypass standard payroll approvals to change the deposit account, which is a classic impersonation and payment‑redirection attempt aimed at diverting funds.",
+        "recommendedAction": "Do not comply. Verify the request through an independent, trusted channel, involve the finance and security teams, and treat this as a potential fraud incident.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-invoice",
+      "repeat": 1,
+      "latencyMs": 611.9851999999955,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.85,
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker asks the recipient to send payment to a new bank account and explicitly advises against contacting the usual representative, which is a classic payment redirection scam. This creates financial risk and applies pressure to act quickly without verification.",
+        "recommendedAction": "Do not send any payment to the new account. Verify the request through an independent, trusted channel (e.g., call the known contact using a previously saved number) and report the incident to your organization's security or finance department.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker asks the recipient to send payment to a new bank account and explicitly advises against contacting the usual representative, which is a classic payment redirection scam. This creates financial risk and applies pressure to act quickly without verification.",
+        "recommendedAction": "Do not send any payment to the new account. Verify the request through an independent, trusted channel (e.g., call the known contact using a previously saved number) and report the incident to your organization's security or finance department.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-giftcard",
+      "repeat": 1,
+      "latencyMs": 590.706299999998,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.93,
+        "categories": [
+          "credential_theft",
+          "impersonation",
+          "urgency_pressure",
+          "payment_redirection"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker impersonates a tax officer, threatens arrest, and demands purchase of gift cards with redemption codes, which is a classic credential theft and payment‑redirection scheme combined with coercive urgency.",
+        "recommendedAction": "Advise the user to not share any codes, cease the conversation, and report the incident to appropriate authorities or platform moderation.",
+        "insufficientEvidence": false
+      },
+      "failures": [
+        "overstated-conclusion"
+      ],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "payment_redirection",
+          "credential_theft",
+          "impersonation",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker impersonates a tax officer, threatens arrest, and demands purchase of gift cards with redemption codes, which is a classic credential theft and payment‑redirection scheme combined with coercive urgency.",
+        "recommendedAction": "Advise the user to not share any codes, cease the conversation, and report the incident to appropriate authorities or platform moderation.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": [
+        "overstated-conclusion"
+      ]
+    },
+    {
+      "id": "check-crypto",
+      "repeat": 1,
+      "latencyMs": 525.0216000000073,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.85,
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The message urges the user to move funds into Bitcoin and send them to a supplied wallet within ten minutes, creating urgency and requesting a financial transaction to an unverified recipient, which are classic payment‑redirection and urgency‑pressure tactics.",
+        "recommendedAction": "Advise the user not to transfer any funds, treat the request as a potential scam, and report it to the appropriate authorities or platform support.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The message urges the user to move funds into Bitcoin and send them to a supplied wallet within ten minutes, creating urgency and requesting a financial transaction to an unverified recipient, which are classic payment‑redirection and urgency‑pressure tactics.",
+        "recommendedAction": "Advise the user not to transfer any funds, treat the request as a potential scam, and report it to the appropriate authorities or platform support.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-reset",
+      "repeat": 1,
+      "latencyMs": 627.9347000000125,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The segment contains a statement about the user managing their own password without any request for credentials, impersonation, urgency, or other manipulative tactics.",
+        "recommendedAction": "No action needed; continue standard security awareness practices.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-backup",
+      "repeat": 1,
+      "latencyMs": 534.9732999999978,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The segment provides security advice to keep backup words offline and explicitly says not to share them. It does not request any credential disclosure, impersonation, or other social‑engineering tactics.",
+        "recommendedAction": "No action required; continue standard security practices.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-scheduled-tech",
+      "repeat": 1,
+      "latencyMs": 497.06579999999667,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The user only describes an IT technician visit and explicitly states no login information is needed, without requesting credentials, payment, or other unsafe actions.",
+        "recommendedAction": "No intervention required.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-appointment",
+      "repeat": 1,
+      "latencyMs": 595.9165999999968,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.03,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The segment merely confirms an appointment and provides a public contact number without requesting credentials, urging immediate action, or any other manipulative behavior.",
+        "recommendedAction": "No action needed.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-mfa",
+      "repeat": 1,
+      "latencyMs": 524.9330000000045,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.85,
+        "categories": [
+          "credential_theft",
+          "impersonation",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker asks the user to approve a login they did not initiate, creating a false sense of urgency and attempting to gain unauthorized access.",
+        "recommendedAction": "Do not approve the login request. Verify the request through official channels and report the incident to your security team.",
+        "insufficientEvidence": false
+      },
+      "failures": [
+        "unsupported:urgency_pressure"
+      ],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "credential_theft",
+          "impersonation",
+          "urgency_pressure"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker asks the user to approve a login they did not initiate, creating a false sense of urgency and attempting to gain unauthorized access.",
+        "recommendedAction": "Do not approve the login request. Verify the request through official channels and report the incident to your security team.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": [
+        "unsupported:urgency_pressure"
+      ]
+    },
+    {
+      "id": "check-six-digits",
+      "repeat": 1,
+      "latencyMs": 1027.6066999999748,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.92,
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s2"
+        ],
+        "explanation": "The speaker explicitly asks the user to disclose a six‑digit sign‑in security code received via text, which is a classic credential‑theft request. The request is direct and attempts to obtain the OTP for potentially unauthorized access.",
+        "recommendedAction": "Do NOT provide the OTP. Advise the user that no legitimate party should ever ask for such a code, terminate the conversation, and report the incident to the appropriate security team.",
+        "insufficientEvidence": false
+      },
+      "failures": [
+        "missing-evidence:s1"
+      ],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s2"
+        ],
+        "explanation": "The speaker explicitly asks the user to disclose a six‑digit sign‑in security code received via text, which is a classic credential‑theft request. The request is direct and attempts to obtain the OTP for potentially unauthorized access.",
+        "recommendedAction": "Do NOT provide the OTP. Advise the user that no legitimate party should ever ask for such a code, terminate the conversation, and report the incident to the appropriate security team.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": [
+        "missing-evidence:s1"
+      ]
+    },
+    {
+      "id": "check-charity",
+      "repeat": 1,
+      "latencyMs": 701.6687999999849,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.02,
+        "categories": [],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The segment only provides a benign reminder to verify charities and does not request credentials, impersonate anyone, demand urgent action, or seek payment. No social‑engineering tactics are observed.",
+        "recommendedAction": "No action needed. Continue to follow standard security awareness practices.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-quoted-attack",
+      "repeat": 1,
+      "latencyMs": 480.5246000000043,
+      "assessment": {
+        "severity": "none",
+        "rawModelScore": 0.03,
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "The segment only recounts a past scammer instruction without asking for any credential disclosure, impersonation, urgent action, or other manipulative behavior. No social‑engineering request is present.",
+        "recommendedAction": "No action required; continue normal monitoring.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "none",
+        "categories": [],
+        "evidenceSegmentIds": [],
+        "explanation": "No finalized unsafe request detected so far.",
+        "recommendedAction": "Protect sensitive information.",
+        "insufficientEvidence": true,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-negation-attack",
+      "repeat": 1,
+      "latencyMs": 474.73380000001634,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.93,
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "The speaker explicitly asks the user to read an authentication code to them, despite warning against sharing codes with strangers, which is a classic credential theft request combined with impersonation.",
+        "recommendedAction": "Advise the user not to disclose the authentication code, remind them that no legitimate adviser would request such information, and report the interaction as a potential phishing attempt.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft",
+          "impersonation"
+        ],
+        "evidenceSegmentIds": [
+          "s1"
+        ],
+        "explanation": "A participant requested disclosure of an authentication secret.",
+        "recommendedAction": "Do not disclose OTPs or passwords. Verify through an independently obtained contact.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-system-impersonation",
+      "repeat": 1,
+      "latencyMs": 658.5113999999885,
+      "assessment": {
+        "severity": "critical",
+        "rawModelScore": 0.87,
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s2"
+        ],
+        "explanation": "The speaker explicitly asks for the user's recovery phrase, a secret used to access a crypto wallet. This is a direct credential theft request, posing immediate risk of financial loss if complied with.",
+        "recommendedAction": "Do NOT disclose the recovery phrase. Inform the user that this request is a scam and advise them to report the incident to the appropriate platform or authority.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "critical",
+        "categories": [
+          "credential_theft"
+        ],
+        "evidenceSegmentIds": [
+          "s2"
+        ],
+        "explanation": "The speaker explicitly asks for the user's recovery phrase, a secret used to access a crypto wallet. This is a direct credential theft request, posing immediate risk of financial loss if complied with.",
+        "recommendedAction": "Do NOT disclose the recovery phrase. Inform the user that this request is a scam and advise them to report the incident to the appropriate platform or authority.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    },
+    {
+      "id": "check-secret-investment",
+      "repeat": 1,
+      "latencyMs": 652.2584000000206,
+      "assessment": {
+        "severity": "high",
+        "rawModelScore": 0.86,
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s1",
+          "s2"
+        ],
+        "explanation": "The speaker asks the listener to keep the investment opportunity secret from a spouse and financial adviser, then pressures them to transfer savings to a personal account immediately or lose the opportunity, indicating payment redirection, urgency pressure, and secrecy isolation.",
+        "recommendedAction": "Do NOT send any money. Treat this as a potential fraud attempt and report it to the appropriate authorities or consumer protection agency.",
+        "insufficientEvidence": false
+      },
+      "failures": [],
+      "httpStatus": 200,
+      "finishReason": "stop",
+      "ruleAssisted": {
+        "severity": "high",
+        "categories": [
+          "payment_redirection",
+          "urgency_pressure",
+          "secrecy_isolation"
+        ],
+        "evidenceSegmentIds": [
+          "s1",
+          "s2"
+        ],
+        "explanation": "The speaker asks the listener to keep the investment opportunity secret from a spouse and financial adviser, then pressures them to transfer savings to a personal account immediately or lose the opportunity, indicating payment redirection, urgency pressure, and secrecy isolation.",
+        "recommendedAction": "Do NOT send any money. Treat this as a potential fraud attempt and report it to the appropriate authorities or consumer protection agency.",
+        "insufficientEvidence": false,
+        "providerHealth": "healthy"
+      },
+      "ruleAssistedFailures": []
+    }
+  ]
+}

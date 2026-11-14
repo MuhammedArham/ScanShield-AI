@@ -1,0 +1,10 @@
+node_modules/
+.env
+dist/
+coverage/
+tmp/
+.agents/
+.env.*
+!.env.example
+docs/tuning/budget.lock
+docs/tuning/budget.json.pending

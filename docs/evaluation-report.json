@@ -1,0 +1,623 @@
+{
+  "providerMode": "synthetic/mock",
+  "scenarioCount": 14,
+  "prefixCount": 34,
+  "falseHigh": 0,
+  "falseCritical": 0,
+  "missedExpected": 0,
+  "gatePassed": true,
+  "finalizedEventToWarningTargetMs": 3000,
+  "targetPassed": true,
+  "latency": {
+    "ruleWarningMs": {
+      "count": 10,
+      "median": 0.07399999999995543,
+      "p95": 0.6724999999999568,
+      "max": 0.6724999999999568
+    },
+    "providerRequestMs": {
+      "count": 34,
+      "median": 0.01290000000000191,
+      "p95": 0.08679999999998245,
+      "max": 0.18360000000001264
+    },
+    "usefulWarningMs": {
+      "count": 10,
+      "median": 0.07399999999995543,
+      "p95": 0.6724999999999568,
+      "max": 0.6724999999999568
+    }
+  },
+  "audioToWarningLatency": null,
+  "calibration": "unimplemented",
+  "calibratedProbability": null,
+  "limitations": "Tiny synthetic regression set; mock reuses rules. No real-world precision/recall, Cerebras quality, audio latency or calibrated probability measured.",
+  "outcomes": [
+    {
+      "scenario": "benign-service.json",
+      "split": "synthetic-regression",
+      "trigger": null,
+      "firstUsefulWarningMs": null,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "security-discussion.json",
+      "split": "synthetic-regression",
+      "trigger": null,
+      "firstUsefulWarningMs": null,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "official-app.json",
+      "split": "synthetic-regression",
+      "trigger": null,
+      "firstUsefulWarningMs": null,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "escalation-benign.json",
+      "split": "synthetic-regression",
+      "trigger": null,
+      "firstUsefulWarningMs": null,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 3,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 4,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "otp-request.json",
+      "split": "synthetic-regression",
+      "trigger": 2,
+      "firstUsefulWarningMs": 0.35590000000001965,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "s2"
+          ],
+          "actualEvidence": [
+            "s2"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 3,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "s2"
+          ],
+          "actualEvidence": [
+            "s2"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "escalation-remote.json",
+      "split": "synthetic-regression",
+      "trigger": 3,
+      "firstUsefulWarningMs": 0.2447999999999979,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 3,
+          "expectedSeverity": "high",
+          "actualSeverity": "high",
+          "expectedEvidence": [
+            "s2",
+            "s3"
+          ],
+          "actualEvidence": [
+            "s2",
+            "s3"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 4,
+          "expectedSeverity": "high",
+          "actualSeverity": "high",
+          "expectedEvidence": [
+            "s2",
+            "s3"
+          ],
+          "actualEvidence": [
+            "s2",
+            "s3"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "escalation-payment.json",
+      "split": "synthetic-regression",
+      "trigger": 3,
+      "firstUsefulWarningMs": 0.347500000000025,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 3,
+          "expectedSeverity": "high",
+          "actualSeverity": "high",
+          "expectedEvidence": [
+            "s2",
+            "s3"
+          ],
+          "actualEvidence": [
+            "s2",
+            "s3"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "prompt-injection.json",
+      "split": "synthetic-regression",
+      "trigger": 2,
+      "firstUsefulWarningMs": 0.06649999999996226,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "injection-2"
+          ],
+          "actualEvidence": [
+            "injection-2"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "delivery-gap.json",
+      "split": "synthetic-regression",
+      "trigger": 1,
+      "firstUsefulWarningMs": 0.07399999999995543,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "gap-1"
+          ],
+          "actualEvidence": [
+            "gap-1"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 3,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "gap-1"
+          ],
+          "actualEvidence": [
+            "gap-1"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "degraded"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "provider-outage",
+      "split": "synthetic-regression",
+      "trigger": 2,
+      "firstUsefulWarningMs": 0.07400000000001228,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "degraded",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "s2"
+          ],
+          "actualEvidence": [
+            "s2"
+          ],
+          "health": {
+            "provider": "degraded",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 3,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "s2"
+          ],
+          "actualEvidence": [
+            "s2"
+          ],
+          "health": {
+            "provider": "degraded",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "duplicate-delivery",
+      "split": "synthetic-regression",
+      "trigger": 2,
+      "firstUsefulWarningMs": 0.6724999999999568,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "none",
+          "actualSeverity": "none",
+          "expectedEvidence": [],
+          "actualEvidence": [],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "s2"
+          ],
+          "actualEvidence": [
+            "s2"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 3,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "s2"
+          ],
+          "actualEvidence": [
+            "s2"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "direct-remote.json",
+      "split": "synthetic-regression",
+      "trigger": 1,
+      "firstUsefulWarningMs": 0.050499999999999545,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "high",
+          "actualSeverity": "high",
+          "expectedEvidence": [
+            "remote-1"
+          ],
+          "actualEvidence": [
+            "remote-1"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "direct-payment.json",
+      "split": "synthetic-regression",
+      "trigger": 1,
+      "firstUsefulWarningMs": 0.04630000000003065,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "high",
+          "actualSeverity": "high",
+          "expectedEvidence": [
+            "payment-1"
+          ],
+          "actualEvidence": [
+            "payment-1"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "repeated-otp.json",
+      "split": "synthetic-regression",
+      "trigger": 1,
+      "firstUsefulWarningMs": 0.04370000000000118,
+      "passed": true,
+      "failures": [],
+      "prefixes": [
+        {
+          "throughSequence": 1,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "repeat-1"
+          ],
+          "actualEvidence": [
+            "repeat-1"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        },
+        {
+          "throughSequence": 2,
+          "expectedSeverity": "critical",
+          "actualSeverity": "critical",
+          "expectedEvidence": [
+            "repeat-1",
+            "repeat-2"
+          ],
+          "actualEvidence": [
+            "repeat-1",
+            "repeat-2"
+          ],
+          "health": {
+            "provider": "healthy",
+            "input": "healthy"
+          }
+        }
+      ]
+    }
+  ]
+}
