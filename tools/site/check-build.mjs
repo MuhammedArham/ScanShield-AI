@@ -1,0 +1,16 @@
+import { readFile, access } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const root = new URL('../../dist/site/', import.meta.url);
+const html = await readFile(new URL('index.html', root), 'utf8');
+assert(html.includes('href="/app/"'));
+const app = await readFile(new URL('app/index.html', root), 'utf8');
+assert(app.includes('RULES ONLY · NO LIVE CALLS'));
+assert(app.includes("connect-src 'none'"));
+assert(app.includes('href="/"'));
+const bundle = await readFile(new URL('app/app.js', root), 'utf8');
+for (const forbidden of ['api.cerebras.ai', 'CEREBRAS_API_KEY', 'node:crypto', 'localStorage', 'sessionStorage']) assert(!bundle.includes(forbidden), forbidden);
+for (const file of ['app/styles.css', 'style.css', 'app.js', 'mark.svg', 'health.json']) await access(new URL(file, root));
+const version = JSON.parse(await readFile(new URL('version.json', root), 'utf8'));
+assert.match(version.sourceCommit, /^[a-f0-9]{40}$/);
+assert.equal(version.mode, 'browser-rules-only');
+console.log('PASS: landing/dashboard links, restrictive network policy, public bundle contains no live provider or storage APIs, assets and source provenance.');

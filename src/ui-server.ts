@@ -119,7 +119,7 @@ export function createUiServer(env: NodeJS.ProcessEnv = process.env) {
           } finally { session.busy = false; }
         }
       }
-      const assets: Record<string, [string, string]> = { '/': ['ui/index.html', 'text/html'], '/app.js': ['ui/app.js', 'text/javascript'], '/styles.css': ['ui/styles.css', 'text/css'] };
+      const assets: Record<string, [string, string]> = { '/': ['ui/index.html', 'text/html'], '/app.js': ['ui/app.js', 'text/javascript'], '/transport.js': ['ui/transport.js', 'text/javascript'], '/styles.css': ['ui/styles.css', 'text/css'] };
       if (req.method === 'GET' && assets[url.pathname]) {
         const [path, type] = assets[url.pathname]!;
         res.writeHead(200, { 'Content-Type': `${type}; charset=utf-8`, 'Cache-Control': 'no-store' });
