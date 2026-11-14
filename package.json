@@ -7,15 +7,19 @@
     "build": "tsc",
     "replay": "tsc && node --env-file-if-exists=.env dist/src/replay.js",
     "evaluate": "tsc && node dist/src/evaluate.js",
-    "test": "vitest run",
+    "test": "tsc && vitest run",
     "check": "tsc --noEmit",
-    "ui": "tsc && node --env-file-if-exists=.env dist/src/ui-server.js"
+    "ui": "tsc && node --env-file-if-exists=.env dist/src/ui-server.js",
+    "build:site": "node tools/site/build.mjs",
+    "test:site": "node tools/site/check-build.mjs"
   },
   "dependencies": {
     "zod": "^4.0.0"
   },
   "devDependencies": {
+    "@noble/hashes": "^2.4.0",
     "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0",
     "vitest": "^4.0.0"

@@ -1,3 +1,4 @@
+import { request } from './transport.js';
 const $ = id => document.getElementById(id);
 const label = value => String(value).replaceAll('_', ' ').replace(/\b\w/g, char => char.toUpperCase());
 const node = (tag, className, text) => { const element = document.createElement(tag); if (className) element.className = className; if (text !== undefined) element.textContent = text; return element; };
@@ -28,13 +29,14 @@ const mode = () => $('mode').value;
 const cooldown = () => mode() === 'cerebras' ? Math.max(0, Math.ceil((nextLiveAt - Date.now()) / 1000)) : 0;
 
 async function api(path, options = {}) {
-  const response = await fetch(path, { ...options, headers: { 'Content-Type': 'application/json', ...options.headers } });
+  const response = await request(path, { ...options, headers: { 'Content-Type': 'application/json', ...options.headers } });
   const data = await response.json();
   if (!response.ok) { if (data.nextLiveAt) nextLiveAt = data.nextLiveAt; throw new Error(data.error ?? 'Request failed.'); }
   return data;
 }
 function notice(message) { $('notice').hidden = !message; $('notice').textContent = message ?? ''; }
 function renderBudget(b) {
+  if (!b) { $('budget-used').textContent = '$0'; $('budget-fill').style.width = '0%'; $('budget-detail').textContent = 'Rules run in this browser. No model requests, uploads, or API costs.'; return; }
   $('budget-used').textContent = `$${b.reservedUsd.toFixed(3)}`;
   $('budget-fill').style.width = `${Math.min(100, b.reservedUsd / b.authorizedUsd * 100)}%`;
   $('budget-detail').textContent = `$${b.remainingUsd.toFixed(3)} remaining · ${b.attempts}/300 attempts. Known usage estimate $${b.usageEstimatedUsd.toFixed(4)}; actual billing unavailable.`;
@@ -49,7 +51,7 @@ function renderMode() {
   const live = mode() === 'cerebras';
   $('mode-mock').classList.toggle('selected', !live); $('mode-live').classList.toggle('selected', live);
   $('mode-mock').setAttribute('aria-pressed', String(!live)); $('mode-live').setAttribute('aria-pressed', String(live));
-  $('mode-title').textContent = live ? 'Cerebras connected · gpt-oss-120b' : 'Mock engine ready';
+  $('mode-title').textContent = live ? 'Cerebras connected · gpt-oss-120b' : (config?.publicMode ? 'Rules running in your browser' : 'Mock engine ready');
   $('mode-description').textContent = live ? 'Live inference. Shared $3 cap. At least 13 seconds between turns.' : 'Real detector and rules. Synthetic scores. No API spend.';
   $('model-chip').textContent = live ? 'GPT-OSS-120B · LOW EFFORT' : 'RULES + MOCK';
   $('score-disclaimer').textContent = live ? 'Raw model score × 100, not the probability of a scam. The latest score may be low while an earlier warning remains unresolved.' : 'A raw indicator score, not the probability of a scam. Mock mode uses a synthetic rule-derived score.';
@@ -64,7 +66,7 @@ function renderControls() {
   $('mode').disabled = busy || running; $('reset').disabled = busy;
   $('mode-mock').disabled = busy || running;
   $('mode-live').disabled = busy || running || !config?.liveConfigured;
-  $('mode-live').title = config?.liveConfigured ? 'Use real Cerebras assessments within the existing $3 budget' : 'Cerebras key/model not detected on the server';
+  $('mode-live').title = config?.liveConfigured ? 'Use real Cerebras assessments within the existing $3 budget' : (config?.publicMode ? 'Live models are not available in this public prototype' : 'Cerebras key/model not detected on the server');
   $('load-scenario').disabled = busy || running; $('scenario').disabled = busy || running;
   $('queue-count').textContent = `${queued.length - cursor} queued turns`;
   $('replay-state').textContent = busy ? 'Assessing turn…' : wait ? `Live cooldown · ${wait}s` : running ? 'Replaying…' : cursor >= queued.length ? 'Scenario complete' : 'Ready when you are';
@@ -194,5 +196,5 @@ $('verification-nav').addEventListener('click',async()=>{
   }catch(error){notice(error.message);}
 });
 selectScenario(); renderMode(); renderControls();
-refreshConfig().catch(()=>notice('Cannot reach the local engine. Start the server with npm run ui.'));
+refreshConfig().catch(()=>notice('The engine could not start. Reload the page or check the local server.'));
 setInterval(renderControls,500);
